@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Two Success Track</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo"></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="tracks.html">Tracks</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero-section">
+    <h1>FRONT-END TRACK</h1>
+    <div class="description-container">
+        <ul>
+            <li>Master the art of creating visually stunning and interactive websites.</li>
+            <li>Gain hands-on experience with HTML, CSS, and JavaScript from scratch.</li>
+            <li>Learn responsive design, user interface (UI) development, and modern frameworks.</li>
+            <li>Be ready to launch your own projects and impress employers with your skills.</li>
+        </ul>
+    </div>
+    <a href="#" class="btn">Start Learning</a>
+</section>
+
+<section class="explore-courses">
+    <div class="courses-grid">
+        <div class="course-card">
+            <div class="card-icon js-icon"></div>
+            <h4>JavaScript</h4>
+            <select class="course-source">
+                <option value="">Select Source</option>
+                <option value="https://www.youtube.com/results?search_query=JavaScript+course">YouTube</option>
+                <option value="https://www.coursera.org/search?query=JavaScript">Coursera</option>
+                <option value="https://www.udemy.com/courses/search/?q=JavaScript">Udemy</option>
+            </select>
+
+            <div class="rating" data-rating="0">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+            <a href="#" class="btn go-btn" target="_blank">Go</a>
+        </div>
+
+        <div class="course-card">
+            <div class="card-icon html-icon"></div>
+            <h4>HTML</h4>
+            <select class="course-source">
+                <option value="">Select Source</option>
+                <option value="https://www.youtube.com/results?search_query=HTML+course">YouTube</option>
+                <option value="https://www.coursera.org/search?query=HTML">Coursera</option>
+                <option value="https://www.udemy.com/courses/search/?q=HTML">Udemy</option>
+            </select>
+
+            <div class="rating" data-rating="0">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+            <a href="#" class="btn go-btn" target="_blank">Go</a>
+        </div>
+
+        <div class="course-card">
+            <div class="card-icon css-icon"></div>
+            <h4>CSS</h4>
+            <select class="course-source">
+                <option value="">Select Source</option>
+                <option value="https://www.youtube.com/results?search_query=CSS+course">YouTube</option>
+                <option value="https://www.coursera.org/search?query=CSS">Coursera</option>
+                <option value="https://www.udemy.com/courses/search/?q=CSS">Udemy</option>
+            </select>
+<div class="rating" data-rating="0">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+            
+            <a href="#" class="btn go-btn" target="_blank">Go</a>
+        </div>
+    </div>
+</section>
+
+<button id="themeBtn">🌙</button>
+
+<script>
+const themeBtn = document.getElementById('themeBtn');
+const savedTheme = localStorage.getItem('theme');
+if(savedTheme === 'dark') {
+    document.body.classList.add('dark');
+    themeBtn.textContent = '☀️';
+}
+themeBtn.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    themeBtn.textContent = isDark ? '☀️' : '🌙';
+});
+
+document.querySelectorAll('.course-card').forEach(card => {
+    const select = card.querySelector('.course-source');
+    const goBtn = card.querySelector('.go-btn');
+
+    goBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = select.value;
+        if(url) {
+            window.open(url, '_blank');
+        } else {
+            alert('Please select a source first.');
+        }
+    });
+});
+</script>
+
+
+
+</body>
+</html>
